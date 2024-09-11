@@ -5,15 +5,15 @@ namespace DotToolkit.Math;
 public static class MathExt
 {
     /// <summary>
-    /// Calculates the Fibonacci numberat the position specified by <paramref name="n"/>
+    /// Calculates the Fibonacci number at the position specified by <paramref name="n"/>
+    /// <example><code>
+    /// int position = 10;
+    /// ulong fibonacciNumber = position.Fibonacci();
+    /// // -> 55
+    /// </code></example>
     /// </summary>
     /// <param name="n">The index of the Fibonacci sequence to be calculated. It must be a non-negative integer.</param>
     /// <returns>The Fibonacci number corresponding to the <paramref name="n"/>.</returns>
-    /// <example><code>
-    /// int position = 10;
-    /// ulong fibonacciNumber = postion.Fibonacci();
-    /// // -> 55
-    /// </code></example>
     public static ulong Fibonacci(this int n)
     {
         if (n == 0) return 0;
@@ -55,7 +55,7 @@ public static class MathExt
             yield return i;
     }
     /// <summary>
-    /// Check if the specified numebr is odd.
+    /// Check if the specified number is odd.
     /// <example><code>
     /// var res = 5.IsOdd();
     /// // -> true
