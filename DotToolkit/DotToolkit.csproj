@@ -4,12 +4,36 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>12.0</LangVersion>
 	</PropertyGroup>
+	<!-- NuGet package info -->
+	<PropertyGroup>
+		<Title>DotToolkit</Title>
+		<Description>🚀 DotToolkit is a comprehensive .NET library designed to enhance productivity by offering a wide range of utilities and extensions. It includes advanced type extensions, JSON handling improvements, custom exceptions, and optimized functions that streamline common coding tasks. DotToolkit reduces boilerplate code, improves performance, and makes development more intuitive, allowing developers to focus on core logic. 📦</Description>
+		<PackageId>DotToolkit</PackageId>
+		<PackageReadmeFile>Docs\readme.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageProjectUrl>https://github.com/alexfalconflores/dottoolkit</PackageProjectUrl>
+		<PackageIcon>Assets\icon.png</PackageIcon>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Authors>Alex Falcon Flores</Authors>
+		<Owners>Alex Falcon Flores</Owners>
+		<PackageTags>dotnet net netcore netstandard library uwp winform winui3 winappsdk utility toolkit csharp extensions universal windows helper math console wpf aspnet asp api json optimizations exceptions</PackageTags>
+		<DevelopmentDependency>true</DevelopmentDependency>
+		<Copyright>© 2024 Alex Stefano Falcon Flores.</Copyright>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="PolySharp" Version="1.14.1">
-	    <PrivateAssets>all</PrivateAssets>
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
+		<PackageReference Include="PolySharp" Version="1.14.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Assets\icon.png" PackagePath="Assets\" Pack="true" />
+		<None Include="Docs\readme.md" PackagePath="Docs\" Pack="true" />
 	</ItemGroup>
 
 </Project>
+

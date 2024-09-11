@@ -1,7 +1,7 @@
 ﻿//using BenchmarkDotNet.Running;
 //using Console_Test;
-using DotToolkit.Math;
-using System.Numerics;
+//using DotToolkit.Math;
+//using System.Numerics;
 //string str = string.Empty;
 //List<int> res = 999_999.Primes().ToList();
 //List<int> res = 999_999.SieveOfAtkin().ToList();
@@ -39,11 +39,11 @@ using System.Numerics;
 //Console.WriteLine(((BigInteger)5).IsBigInteger());
 //Console.WriteLine(((BigInteger)5.5).IsBigInteger());
 
-Complex complex = new(1, 1.2);
-Console.WriteLine(5.IsComplex());
-Console.WriteLine(complex.IsComplex());
-Console.WriteLine(complex.Real.IsComplex());
-Console.WriteLine(complex.Imaginary.IsComplex());
+//Complex complex = new(1, 1.2);
+//Console.WriteLine(5.IsComplex());
+//Console.WriteLine(complex.IsComplex());
+//Console.WriteLine(complex.Real.IsComplex());
+//Console.WriteLine(complex.Imaginary.IsComplex());
 
 //Console.WriteLine(complex.Imaginary);
 //BigInteger bigInteger = (BigInteger)1.1;
