@@ -28,6 +28,15 @@ This project is available as a [NuGet package](). You can install it using the N
     - [Primes](docs/Math.md#primes)
     - [Primes - SieveOfAtkin](docs/Math.md#primes---sieveofatkin)
     - [Primes - SegmentedSieve](docs/Math.md#primes---segmentedsieve)
+    - [IsBetween](docs/Math.md#isbetween)
+    - [IsPositive](docs/Math.md#ispositive)
+    - [IsNegative](docs/Math.md#isnegative)
+    - [IsZero](docs/Math.md#iszero)
+    - [IsInteger](docs/Math.md#isinteger)
+    - [IsDecimal](docs/Math.md#isdecimal)
+    - [IsBigInteger](docs/Math.md#isbetween)
+    - [IsComplex](docs/Math.md#iscomplex)
+    - [IsNatural](docs/Math.md#isnatural)
 - []()
     
 

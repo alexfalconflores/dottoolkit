@@ -201,3 +201,26 @@ Complex complex = new Complex(1, 1.2);
 var res = complex.IsComplex()
 // -> true
 ```
+
+## IsNatural
+`Return` Check if the number is natural. Zero is considered natural default, but you can change it.
+```csharp
+BigInteger bigInteger = (BigInteger)1.1;
+var res = bigInteger.IsNatural();
+//-> true
+
+var res = 0.IsNatural();
+// -> true
+
+var res = 0.IsNatural(false);
+// -> false
+
+var res = 5.2m.IsNatural();
+// -> false
+
+var res = 5.IsNatural();
+// -> true
+
+var res = (-5).IsNatural();
+// -> false
+```
