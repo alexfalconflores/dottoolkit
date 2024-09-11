@@ -164,4 +164,118 @@ public static class MathExt
             }
         }
     }
+    /// <summary>
+    /// Generates a sequence of prime numbers less than or equal to the specified value using the Sieve of Atkin algorithm.
+    /// <example><code>
+    /// var res = 999_999.SieveOfAtkin().ToList();
+    /// // -> 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,....,999953, 999959, 999961, 999979, 999983
+    /// </code></example>
+    /// </summary>
+    /// <param name="quantity"></param>
+    /// <returns>A sequence of prime numbers.</returns>
+    public static IEnumerable<int> SieveOfAtkin(this int limit)
+    {
+        // Initialize the sieve array with false values
+        bool[] isPrime = new bool[limit + 1];
+
+        //Base cases for small numbers
+        if (limit > 2) yield return 2;
+        if(limit > 3) yield return 3;
+
+        // Step 1: Mark numbers using the Atkin rules
+        for (int x = 1; x * x <= limit; x++)
+        {
+            for (int y = 1; y * y <= limit; y++)
+            {
+                int n = 4 * x * x + y * y;
+                if (n <= limit && (n % 12 == 1 || n % 12 == 5))
+                    isPrime[n] = !isPrime[n];
+
+                n = 3 * x * x + y * y;
+                if (n <= limit && n % 12 == 7)
+                    isPrime[n] = !isPrime[n];
+
+                n = 3 * x * x - y * y;
+                if (x > y && n <= limit && n % 12 == 11)
+                    isPrime[n] = !isPrime[n];
+            }
+        }
+
+        // Step 2: Mark multiples of squares as non-prime
+        for (int i = 5; i * i <= limit; i++)
+        {
+            if (isPrime[i])
+            {
+                for (int j = i * i; j <= limit; j += i * i)
+                    isPrime[j] = false;
+            }
+        }
+
+        // Step 3: Collect all primes
+        for (int i = 5; i <= limit; i++)
+        {
+            if (isPrime[i])
+                yield return i;
+        }
+    }
+    /// <summary>
+    /// Generates a sequence of prime numbers less than or equal to the specified value using the Segmented Sieve algorithm.
+    /// <example><code>
+    /// var res = 999_999.SieveOfAtkin().ToList();
+    /// // -> 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,....,999953, 999959, 999961, 999979, 999983
+    /// </code></example>
+    /// </summary>
+    /// <param name="quantity"></param>
+    /// <returns>A sequence of prime numbers.</returns>
+    public static IEnumerable<int> SegmentedSieve(this int high)
+    {
+        int low = 0;
+        // Step 1: Use a simple sieve to find all primes up to √high
+        int limit = (int)System.Math.Sqrt(high);
+        List<int> primes = [];
+
+        // Simple sieve of Eratosthenes to find small primes up to √high
+        bool[] isPrime = new bool[limit + 1];
+        for (int i = 2; i <= limit; i++)
+            isPrime[i] = true;
+
+        for (int i = 2; i * i <= limit; i++)
+        {
+            if (isPrime[i])
+            {
+                for (int j = i * i; j <= limit; j += i)
+                    isPrime[j] = false;
+            }
+        }
+
+        // Collect the primes found in the range [2, √high]
+        for (int i = 2; i <= limit; i++)
+        {
+            if (isPrime[i])
+                primes.Add(i);
+        }
+
+        // Step 2: Segment the range [low, high] and mark non-primes using the small primes
+        bool[] segment = new bool[high - low + 1];
+        for (int i = 0; i < segment.Length; i++)
+            segment[i] = true;
+
+        // For each prime, mark its multiples in the segment as non-prime
+        foreach (int prime in primes)
+        {
+            // Find the first multiple of prime in the segment [low, high]
+            int start = System.Math.Max(prime * prime, (low + prime - 1) / prime * prime);
+
+            // Mark all multiples of prime in the segment as non-prime
+            for (int j = start; j <= high; j += prime)
+                segment[j - low] = false;
+        }
+
+        // Step 3: Return the primes in the segment
+        for (int i = low; i <= high; i++)
+        {
+            if (segment[i - low] && i > 1) // Exclude 1, as it's not prime
+                yield return i;
+        }
+    }
 }
