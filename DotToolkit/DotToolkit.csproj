@@ -3,25 +3,36 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>12.0</LangVersion>
-	</PropertyGroup>
-	<!-- NuGet package info -->
-	<PropertyGroup>
-		<Title>DotToolkit</Title>
-		<Description>🚀 DotToolkit is a comprehensive .NET library designed to enhance productivity by offering a wide range of utilities and extensions. It includes advanced type extensions, JSON handling improvements, custom exceptions, and optimized functions that streamline common coding tasks. DotToolkit reduces boilerplate code, improves performance, and makes development more intuitive, allowing developers to focus on core logic. 📦</Description>
+		<RootNamespace>DotToolkit</RootNamespace>
+		<AssemblyName>DotToolkit</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<OutputType>Library</OutputType>
+		<FileVersion>1.0.1.0</FileVersion>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<!--nugget package-->
 		<PackageId>DotToolkit</PackageId>
-		<PackageReadmeFile>Docs\readme.md</PackageReadmeFile>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Title>DotToolkit</Title>
+		<Version>1.0.1</Version>
+		<Authors>Alex Falcon Flores</Authors>
+		<Company>Alex Falcon Flores</Company>
+		<Product>DotToolkit</Product>
+		<Description>🚀 DotToolkit is a comprehensive .NET library designed to enhance productivity by offering a wide range of utilities and extensions. It includes advanced type extensions, JSON handling improvements, custom exceptions, and optimized functions that streamline common coding tasks. DotToolkit reduces boilerplate code, improves performance, and makes development more intuitive, allowing developers to focus on core logic. 📦</Description>
+		<Copyright>© 2024 Alex Stefano Falcon Flores.</Copyright>
 		<PackageProjectUrl>https://github.com/alexfalconflores/dottoolkit</PackageProjectUrl>
 		<PackageIcon>Assets\icon.png</PackageIcon>
-		<PackageVersion>1.0.0</PackageVersion>
-		<Authors>Alex Falcon Flores</Authors>
-		<Owners>Alex Falcon Flores</Owners>
-		<PackageTags>dotnet net netcore netstandard library uwp winform winui3 winappsdk utility toolkit csharp extensions universal windows helper math console wpf aspnet asp api json optimizations exceptions</PackageTags>
-		<DevelopmentDependency>true</DevelopmentDependency>
-		<Copyright>© 2024 Alex Stefano Falcon Flores.</Copyright>
-		<IncludeSymbols>true</IncludeSymbols>
-		<IncludeSource>true</IncludeSource>
+		<PackageReadmeFile>Docs\readme.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/alexfalconflores/dottoolkit</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>dotnet; net; netcore; netstandard; library; uwp; winform; winui3; winappsdk; utility; toolkit; csharp; extensions; universal; windows; helper; math; console; wpf; aspnet; asp; api; json; optimizations; exceptions</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageReleaseNotes>🔨 Fixed the problem of why it did not recognize the reference.</PackageReleaseNotes>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<GenerateAssemblyInfo>True</GenerateAssemblyInfo>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -29,6 +40,20 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="Assets\icon.png" PackagePath="Assets\" Pack="true" />

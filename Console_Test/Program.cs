@@ -1,6 +1,6 @@
 ﻿//using BenchmarkDotNet.Running;
 //using Console_Test;
-//using DotToolkit.Math;
+using DotToolkit.Math;
 //using System.Numerics;
 //string str = string.Empty;
 //List<int> res = 999_999.Primes().ToList();
