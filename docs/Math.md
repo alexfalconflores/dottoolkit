@@ -200,6 +200,12 @@ var res = 5.IsComplex()
 Complex complex = new Complex(1, 1.2);
 var res = complex.IsComplex()
 // -> true
+
+var res = complex.Real.IsComplex()
+// -> false
+
+var res = complex.Imaginary.IsComplex()
+// -> false
 ```
 
 ## IsNatural
