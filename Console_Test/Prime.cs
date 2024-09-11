@@ -13,6 +13,11 @@ public class Prime
         return Number.SieveOfEratosthenes().ToList();
     }
 
+    [Benchmark]
+    public List<int> SieveOfEuler()
+    {
+        return Number.SieveOfEuler().ToList();
+    }
 
     [Benchmark]
     public List<int> Primes()
@@ -41,6 +46,27 @@ static file class Test
             if (isPrime[i])
                 yield return i;
     }
+    public static IEnumerable<int> SieveOfEuler(this int quantity)
+    {
+        if (quantity < 2)
+            yield break; // There ar no prime numbers less than 2
+        // Create a list of booleans, initialized to true
+        bool[] isPrime = new bool[quantity + 1];
+        for (int i = 2; i < quantity; i++)
+            isPrime[i] = true;
+        //
+        for (int i = 2; i <= quantity; i++)
+        {
+            if (isPrime[i])
+            {
+                yield return i; // i es primo
+                for (int j = i * 2; j <= quantity; j += i)
+                    isPrime[j] = false;
+            }
+        }
+    }
+
+
     public static IEnumerable<int> Primes(this int quantity) => Enumerable.Range(2, quantity - 1).Where(i => i.IsPrime());
     public static bool IsPrime(this int number)
     {
