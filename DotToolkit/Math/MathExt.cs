@@ -467,7 +467,7 @@ public static class MathExt
     /// <typeparam name="T"></typeparam>
     /// <param name="_"></param>
     /// <returns></returns>
-    public static bool IsComplex(this Complex number) => number.GetType() == typeof(Complex);
+    public static bool IsComplex(this object number) => number is Complex;
     /// <summary>
     /// Check if the number is natural. Zero is considered natural default, but you can change it.
     /// <example><code>
