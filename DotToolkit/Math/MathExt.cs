@@ -428,10 +428,6 @@ public static class MathExt
     public static bool IsBigInteger<T>(this T _) where T : struct, IComparable<T> => typeof(T) == typeof(BigInteger);
     /// <summary>
     /// Check if the number represents a complex number, which has a real part and an imaginary part.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="_"></param>
-    /// <returns></returns>
     /// <example><code>
     /// var res = 5.IsComplex()
     /// // -> false
@@ -440,17 +436,39 @@ public static class MathExt
     /// var res = complex.IsComplex()
     /// // -> true
     /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_"></param>
+    /// <returns></returns>
     public static bool IsComplex<T>(this T _) where T : struct, IComparable<T> => typeof(T) == typeof(Complex);
     public static bool IsComplex(this Complex number) => number.GetType() == typeof(Complex);
     /// <summary>
     /// Check if the number is natural. Zero is considered natural default, but you can change it.
+    /// <example><code>
+    /// BigInteger bigInteger = (BigInteger)1.1;
+    /// var res = bigInteger.IsNatural();
+    /// //-> true
+    /// 
+    /// var res = 0.IsNatural();
+    /// // -> true
+    /// 
+    /// var res = 0.IsNatural(false);
+    /// // -> false
+    /// 
+    /// var res = 5.2m.IsNatural();
+    /// // -> false
+    /// 
+    /// var res = 5.IsNatural();
+    /// // -> true
+    /// 
+    /// var res = (-5).IsNatural();
+    /// // -> false
+    /// </code></example>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="number"></param>
     /// /// <param name="includeZero"></param>
     /// <returns></returns>
-    /// <example><code>
-    /// </code></example>
     public static bool IsNatural<T>(this T number, bool includeZero = true) where T : struct, IComparable<T>
     {
         T zero = default;
