@@ -1,9 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace DotToolkit.Math;
 
 public static class MathExt
 {
+    //typeof(Int128), typeof(UInt128) only available in .NET 7.0 or higher
+    //  int256 https://github.com/NethermindEth/int256
+    private readonly static HashSet<Type> INTEGERS = [typeof(Byte), typeof(SByte), typeof(Int16), typeof(UInt16), typeof(Int32), typeof(UInt32), typeof(Int64), typeof(UInt64), typeof(BigInteger)];
+    private readonly static HashSet<Type> DECIMAL = [typeof(Single), typeof(Double), typeof(Decimal)];
+
     /// <summary>
     /// Calculates the Fibonacci number at the position specified by <paramref name="n"/>
     /// <example><code>
@@ -180,7 +188,7 @@ public static class MathExt
 
         //Base cases for small numbers
         if (limit > 2) yield return 2;
-        if(limit > 3) yield return 3;
+        if (limit > 3) yield return 3;
 
         // Step 1: Mark numbers using the Atkin rules
         for (int x = 1; x * x <= limit; x++)
@@ -277,5 +285,175 @@ public static class MathExt
             if (segment[i - low] && i > 1) // Exclude 1, as it's not prime
                 yield return i;
         }
+    }
+    /// <summary>
+    /// Check if the number is between two numbers.
+    /// <example><code>
+    /// var res = 5.IsBetween(-5, 4)
+    /// // -> false
+    /// 
+    /// var res = (-5).IsBetween(-5, 4)
+    /// // -> true
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// <param name="minValue"></param>
+    /// <param name="maxValue"></param>
+    /// <returns></returns>
+    public static bool IsBetween<T>(this T number, T minValue, T maxValue) where T : struct, IComparable<T>
+    {
+        if (minValue.CompareTo(maxValue) > 0)
+            (minValue, maxValue) = (maxValue, minValue);
+        return number.CompareTo(minValue) >= 0 && number.CompareTo(maxValue) <= 0;
+    }
+    /// <summary>
+    /// Check if the number is positive. Zero is considered positive or negative.
+    /// <example><code>
+    /// var res = 5.IsPositive()
+    /// // -> true
+    /// 
+    /// var res = 5.5.IsPositive()
+    /// // -> true
+    /// 
+    /// var res = (-5).IsPositive()
+    /// // -> false
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public static bool IsPositive<T>(this T number) where T : struct, IComparable<T>
+    {
+        T zero = default;
+        return number.CompareTo(zero) >= 0;
+    }
+    /// <summary>
+    /// Check if the number is negative. Zero is considered positive or negative.
+    /// </summary>
+    /// <example><code>
+    /// var res = 5.IsNegative()
+    /// // -> false
+    /// 
+    /// var res = (-5.5).IsNegative()
+    /// // -> true
+    /// 
+    /// var res = (-5).IsNegative()
+    /// // -> true
+    /// </code></example>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public static bool IsNegative<T>(this T number) where T : struct, IComparable<T>
+    {
+        T zero = default;
+        return number.CompareTo(zero) <= 0;
+    }
+    /// <summary>
+    /// Check if the number is zero.
+    /// <example><code>
+    /// var res = 5.IsZero()
+    /// // -> false
+    /// 
+    /// var res = (-5.5).IsZero()
+    /// // -> false
+    /// 
+    /// var res = 0.IsZero()
+    /// // -> true
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public static bool IsZero<T>(this T number) where T : struct, IComparable<T>
+    {
+        T zero = default;
+        return number.CompareTo(zero) == 0;
+    }
+    /// <summary>
+    /// Check if the number is integer.
+    /// (Byte(byte) => 8bits, SByte(sbyte) => 8bits, Int16(short) => 16bits, UInt16(ushort) => 16bits, Int32(int) => 32bits, UInt32(uint) => 32bits,
+    /// Int64(long) => 64bits, UInt64(ulong) => 64bits, BigInteger).
+    /// <example><code>
+    /// var res = 5.IsInteger()
+    /// // -> true
+    /// 
+    /// var res = (-5.5).IsInteger()
+    /// // -> false
+    /// 
+    /// var res = 0.IsInteger()
+    /// // -> true
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public static bool IsInteger<T>(this T _) where T : struct, IComparable<T> => INTEGERS.Contains(typeof(T));
+    /// <summary>
+    /// Check if the number is decimal. (Single(float) => 32bits, Double(double) => 64bits, Decimal(decimal) => 128bits.
+    /// <example><code>
+    /// var res = 5.IsDecimal()
+    /// // -> false
+    /// 
+    /// var res = (-5.5).IsDecimal()
+    /// // -> true
+    /// 
+    /// var res = 5.5.IsDecimal()
+    /// // -> true
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public static bool IsDecimal<T>(this T _) where T : struct, IComparable<T> => DECIMAL.Contains(typeof(T));
+    /// <summary>
+    ///  Check if the number is an integer of arbitrary precision.
+    /// <example><code>
+    /// var res = (-5.5).IsBigInteger()
+    /// // -> false
+    /// 
+    /// var res = 5.IsBigInteger()
+    /// // -> true
+    /// 
+    /// var res = ((BigInteger)5).IsBigInteger()
+    /// // -> true
+    /// 
+    /// var res = ((BigInteger)5.5).IsBigInteger()
+    /// // -> true
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_"></param>
+    /// <returns></returns>
+    public static bool IsBigInteger<T>(this T _) where T : struct, IComparable<T> => typeof(T) == typeof(BigInteger);
+    /// <summary>
+    /// Check if the number represents a complex number, which has a real part and an imaginary part.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_"></param>
+    /// <returns></returns>
+    /// <example><code>
+    /// var res = 5.IsComplex()
+    /// // -> false
+    /// 
+    /// Complex complex = new Complex(1, 1.2);
+    /// var res = complex.IsComplex()
+    /// // -> true
+    /// </code></example>
+    public static bool IsComplex<T>(this T _) where T : struct, IComparable<T> => typeof(T) == typeof(Complex);
+    public static bool IsComplex(this Complex number) => number.GetType() == typeof(Complex);
+    /// <summary>
+    /// Check if the number is natural. Zero is considered natural default, but you can change it.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number"></param>
+    /// /// <param name="includeZero"></param>
+    /// <returns></returns>
+    /// <example><code>
+    /// </code></example>
+    public static bool IsNatural<T>(this T number, bool includeZero = true) where T : struct, IComparable<T>
+    {
+        T zero = default;
+        return INTEGERS.Contains(typeof(T)) && number.CompareTo(zero) >= (includeZero ? 0 : 1);
     }
 }
