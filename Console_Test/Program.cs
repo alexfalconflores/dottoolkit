@@ -39,20 +39,20 @@ using System.Numerics;
 //Console.WriteLine(((BigInteger)5).IsBigInteger());
 //Console.WriteLine(((BigInteger)5.5).IsBigInteger());
 
-//Complex complex = new(1, 1.2);
-//Console.WriteLine(5.IsComplex());
-//Console.WriteLine(complex.IsComplex());
-//Console.WriteLine(complex.Real.IsComplex());
-//Console.WriteLine(complex.Imaginary.IsComplex());
+Complex complex = new(1, 1.2);
+Console.WriteLine(5.IsComplex());
+Console.WriteLine(complex.IsComplex());
+Console.WriteLine(complex.Real.IsComplex());
+Console.WriteLine(complex.Imaginary.IsComplex());
 
 //Console.WriteLine(complex.Imaginary);
-BigInteger bigInteger = (BigInteger)1.1;
-Console.WriteLine(bigInteger.IsNatural());
-Console.WriteLine(0.IsNatural());
-Console.WriteLine(0.IsNatural(false));
-Console.WriteLine(5.2m.IsNatural());
-Console.WriteLine(5.IsNatural());
-Console.WriteLine((-5).IsNatural());
+//BigInteger bigInteger = (BigInteger)1.1;
+//Console.WriteLine(bigInteger.IsNatural());
+//Console.WriteLine(0.IsNatural());
+//Console.WriteLine(0.IsNatural(false));
+//Console.WriteLine(5.2m.IsNatural());
+//Console.WriteLine(5.IsNatural());
+//Console.WriteLine((-5).IsNatural());
 
 //BenchmarkRunner.Run<Fibo>();
 

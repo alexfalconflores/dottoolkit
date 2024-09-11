@@ -435,12 +435,38 @@ public static class MathExt
     /// Complex complex = new Complex(1, 1.2);
     /// var res = complex.IsComplex()
     /// // -> true
+    /// 
+    /// var res = complex.Real.IsComplex()
+    /// // -> false
+    /// 
+    /// var res = complex.Imaginary.IsComplex()
+    /// // -> false
     /// </code></example>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="_"></param>
     /// <returns></returns>
     public static bool IsComplex<T>(this T _) where T : struct, IComparable<T> => typeof(T) == typeof(Complex);
+    /// <summary>
+    /// Check if the number represents a complex number, which has a real part and an imaginary part.
+    /// <example><code>
+    /// var res = 5.IsComplex()
+    /// // -> false
+    /// 
+    /// Complex complex = new Complex(1, 1.2);
+    /// var res = complex.IsComplex()
+    /// // -> true
+    /// 
+    /// var res = complex.Real.IsComplex()
+    /// // -> false
+    /// 
+    /// var res = complex.Imaginary.IsComplex()
+    /// // -> false
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_"></param>
+    /// <returns></returns>
     public static bool IsComplex(this Complex number) => number.GetType() == typeof(Complex);
     /// <summary>
     /// Check if the number is natural. Zero is considered natural default, but you can change it.
