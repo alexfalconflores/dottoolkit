@@ -1,4 +1,4 @@
-﻿![UWP Toolkit Cover](assets/uwp-toolkit-cover.png)
+﻿![DotToolkit Cover](assets/dottoolkit-cover.svg)
 
 # DotToolkit
 
@@ -10,12 +10,26 @@
 
 
 ## Installation 📦
-This project is available as a [NuGet package](https://www.nuget.org/packages/AlexFalconFlores.UWP.Toolkit). You can install it using the NuGet Package Console window:
+This project is available as a [NuGet package](). You can install it using the NuGet Package Console window:
 ```bash
 
 ```
 
 ## Documentation 📖
+- [Math](docs/Math.md)
+    - [Fibonacci](docs/Math.md#fibonacci)
+    - [IsEven](docs/Math.md#iseven)
+    - [Evens](docs/Math.md#evens)
+    - [IsOdd](docs/Math.md#isodd)
+    - [Odds](docs/Math.md#odds)
+    - [IsDivisibleBy](docs/Math.md#isdivisibleby)
+    - [IsMultipleOf](docs/Math.md#ismultipleof)
+    - [IsPrime](docs/Math.md#isprime)
+    - [Primes](docs/Math.md#primes)
+    - [Primes - SieveOfAtkin](docs/Math.md#primes---sieveofatkin)
+    - [Primes - SegmentedSieve](docs/Math.md#primes---segmentedsieve)
+- []()
+    
 
 ## Library Dependencies 📚
 - PolySharp
