@@ -2,17 +2,17 @@
 
 # DotToolkit
 
-[![NuGet](https://img.shields.io/nuget/dt/AlexFalconFlores.UWP.Toolkit.svg)](https://www.nuget.org/stats/packages/AlexFalconFlores.UWP.Toolkit?groupby=Version) 
-[![NuGet](https://img.shields.io/nuget/vpre/AlexFalconFlores.UWP.Toolkit.svg)](https://www.nuget.org/packages/AlexFalconFlores.UWP.Toolkit/)
-<a href="https://www.nuget.org/packages/AlexFalconFlores.UWP.Toolkit">
+[![NuGet](https://img.shields.io/nuget/dt/DotToolkit.svg)](https://www.nuget.org/stats/packages/DotToolkit?groupby=Version) 
+[![NuGet](https://img.shields.io/nuget/vpre/DotToolkit.svg)](https://www.nuget.org/packages/DotToolkit/)
+<a href="https://www.nuget.org/packages/DotToolkit">
     <img src="https://raw.githubusercontent.com/alexfalconflores/alexfalconflores/main/img/nuget-banner.svg" height=20 alt="Go to Nuget"/>
 </a>
 
 
 ## Installation 📦
-This project is available as a [NuGet package](). You can install it using the NuGet Package Console window:
+This project is available as a [NuGet package](https://www.nuget.org/packages/DotToolkit). You can install it using the NuGet Package Console window:
 ```bash
-
+dotnet add package DotToolkit --version 1.0.1
 ```
 
 ## Documentation 📖
