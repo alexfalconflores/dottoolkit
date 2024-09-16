@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotToolkit\DotToolkit.csproj" />
+    <ProjectReference Include="..\..\DotToolkit\DotToolkit.csproj" />
   </ItemGroup>
 
 </Project>
