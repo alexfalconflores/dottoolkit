@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Running;
 using Console_Test;
 using DotToolkit.Extensions;
+using DotToolkit.Math;
 //using System.Numerics;
 //string str = string.Empty;
 //List<int> res = 999_999.Primes().ToList();
@@ -207,7 +208,10 @@ using DotToolkit.Extensions;
 //Console.WriteLine(escaped2);
 ////escaped2 será "&lt;div&gt;Example&lt;/div&gt;"
 
-BenchmarkRunner.Run<ReverseBenchMark>();
+//BenchmarkRunner.Run<ReverseBenchMark>();
 //string original = "Hello, World!";
 //string reversed = original.ReverseString();
 //Console.WriteLine(reversed);  // Output: !dlroW ,olleH
+
+Console.WriteLine(20.Factorial());
+Console.WriteLine(50.FactorialBigInteger());
