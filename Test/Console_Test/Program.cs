@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
 using Console_Test;
+using Console_Test.enums;
 using Console_Test.model;
 using DotToolkit.Extensions;
 using DotToolkit.Math;
@@ -253,13 +254,15 @@ using System.Collections.ObjectModel;
 //var random = wordSet.RandomChoice();
 //Console.WriteLine(random);
 
-int intValue = 1;
-bool result = intValue.ToBool(); // Output: true
-Console.WriteLine(result);
+//int intValue = 1;
+//bool result = intValue.ToBool(); // Output: true
+//Console.WriteLine(result);
 
-string stringValue = "false";
-bool resultString = stringValue.ToBool(); // Output: false
-Console.WriteLine(resultString);
+//string stringValue = "false";
+//bool resultString = stringValue.ToBool(); // Output: false
+//Console.WriteLine(resultString);
+
+Console.WriteLine(SampleEnum.A.ToChar());
 
 
 

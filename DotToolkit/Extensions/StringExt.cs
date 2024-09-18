@@ -429,7 +429,7 @@ public static class StringExt
         if (input is null) return string.Empty;
         var length = input.Length;
         var builder = new StringBuilder(length);
-        for(int i = length - 1; i>=0;i--)builder.Append(input[i]);
+        for (int i = length - 1; i >= 0; i--) builder.Append(input[i]);
         return builder.ToString();
     }
     /// <summary>
@@ -437,6 +437,15 @@ public static class StringExt
     /// <example><code>
     /// int numericValue = 65; // ASCII value for 'A'
     /// char result = numericValue.ToChar();
+    /// //-> A
+    /// 
+    /// public enum SampleEnum
+    /// {
+    ///    A = 65,
+    ///    b = 66,
+    ///    c = 67
+    /// }
+    /// char result = SampleEnum.A.ToChar();
     /// //-> A
     /// </code></example>
     /// </summary>
