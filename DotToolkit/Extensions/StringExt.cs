@@ -432,4 +432,16 @@ public static class StringExt
         for(int i = length - 1; i>=0;i--)builder.Append(input[i]);
         return builder.ToString();
     }
+    /// <summary>
+    /// Converts the specified value to a Unicode character (<see cref="char"/>).
+    /// <example><code>
+    /// int numericValue = 65; // ASCII value for 'A'
+    /// char result = numericValue.ToChar();
+    /// //-> A
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="number">The value to be converted, which must implement <see cref="IConvertible"/>.</param>
+    /// <returns>The Unicode character representation of the value.</returns>
+    public static char ToChar<T>(this T value) where T : IConvertible => Convert.ToChar(value);
 }
