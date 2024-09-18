@@ -253,9 +253,14 @@ using System.Collections.ObjectModel;
 //var random = wordSet.RandomChoice();
 //Console.WriteLine(random);
 
-int numericValue = 65; // ASCII value for 'A'
-char result = numericValue.ToChar();
-Console.WriteLine(result); // Output: 'A'
+int intValue = 1;
+bool result = intValue.ToBool(); // Output: true
+Console.WriteLine(result);
+
+string stringValue = "false";
+bool resultString = stringValue.ToBool(); // Output: false
+Console.WriteLine(resultString);
+
 
 
 
