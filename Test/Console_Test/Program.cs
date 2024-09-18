@@ -1,7 +1,9 @@
 ﻿using BenchmarkDotNet.Running;
 using Console_Test;
+using Console_Test.model;
 using DotToolkit.Extensions;
 using DotToolkit.Math;
+using System.Collections.ObjectModel;
 //using System.Numerics;
 //string str = string.Empty;
 //List<int> res = 999_999.Primes().ToList();
@@ -213,5 +215,24 @@ using DotToolkit.Math;
 //string reversed = original.ReverseString();
 //Console.WriteLine(reversed);  // Output: !dlroW ,olleH
 
-Console.WriteLine(20.Factorial());
-Console.WriteLine(50.FactorialBigInteger());
+//Console.WriteLine(20.Factorial());
+//Console.WriteLine(50.FactorialBigInteger());
+
+var people = new ObservableCollection<Person2>
+{
+    new Person2 { Name = "Alice", Age = 17 },
+    new Person2 { Name = "Bob", Age = 22 },
+    new Person2 { Name = "Charlie", Age = 16 }
+};
+//bool removedCount =  people.Remove(people[0]);
+int removedCount = people.RemoveAll(p => p.Age < 18, p =>
+{
+    Console.WriteLine($"Removed: {p.Name}, {p.Age} years old.");
+});
+
+Console.WriteLine($"Number of people removed: {removedCount}");
+
+foreach (var person in people)
+{
+    Console.WriteLine($"{person.Name}, {person.Age} years old");
+}
