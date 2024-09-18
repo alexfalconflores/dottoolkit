@@ -218,21 +218,33 @@ using System.Collections.ObjectModel;
 //Console.WriteLine(20.Factorial());
 //Console.WriteLine(50.FactorialBigInteger());
 
-var people = new ObservableCollection<Person2>
-{
-    new Person2 { Name = "Alice", Age = 17 },
-    new Person2 { Name = "Bob", Age = 22 },
-    new Person2 { Name = "Charlie", Age = 16 }
-};
-//bool removedCount =  people.Remove(people[0]);
-int removedCount = people.RemoveAll(p => p.Age < 18, p =>
-{
-    Console.WriteLine($"Removed: {p.Name}, {p.Age} years old.");
-});
+//var people = new ObservableCollection<Person2>
+//{
+//    new Person2 { Name = "Alice", Age = 17 },
+//    new Person2 { Name = "Bob", Age = 22 },
+//    new Person2 { Name = "Charlie", Age = 16 }
+//};
+////bool removedCount =  people.Remove(people[0]);
+//int removedCount = people.RemoveAll(p => p.Age < 18, p =>
+//{
+//    Console.WriteLine($"Removed: {p.Name}, {p.Age} years old.");
+//});
 
-Console.WriteLine($"Number of people removed: {removedCount}");
+//Console.WriteLine($"Number of people removed: {removedCount}");
 
-foreach (var person in people)
-{
-    Console.WriteLine($"{person.Name}, {person.Age} years old");
-}
+//foreach (var person in people)
+//{
+//    Console.WriteLine($"{person.Name}, {person.Age} years old");
+//}
+
+//var numbers = new List<int>().Fill(4, 4);
+//numbers.Fill(5, 5);
+//Console.WriteLine(numbers.Join(","));
+
+var numbers = new List<int> { 1, 2, 3, 4, 5 };
+var randomNumber = numbers.RandomChoice();
+Console.WriteLine($"Número aleatorio seleccionado de la lista: {randomNumber}");
+
+var wordSet = new HashSet<string> { "dog", "cat", "fish" };
+var randomWordFromSet = wordSet.RandomChoice();
+Console.WriteLine($"Palabra aleatoria seleccionada del conjunto: {randomWordFromSet}");
