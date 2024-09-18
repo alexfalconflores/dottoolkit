@@ -91,4 +91,22 @@ public static class ObservableCollectionExt
         }
         return removedCount;
     }
+    /// <summary>
+    /// Converts an <see cref="IEnumerable{T}"/> to an <see cref="ObservableCollection{T}"/>.
+    /// <example><code>
+    /// var numbers = new List&lt;int&gt; { 1, 2, 3, 4, 5 }.ToObservableCollection();
+    /// 
+    /// var wordSet = new HashSet&lt;string&gt; { "dog", "cat", "fish" }.ToObservableCollection();
+    /// 
+    /// var array = new int[] { 1, 2, 3, 4, 5 }.ToObservableCollection();
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in the collection.</typeparam>
+    /// <param name="source">The source collection to convert. It must not be null.</param>
+    /// <returns>An <see cref="ObservableCollection{T}"/> containing the elements from the source collection.</returns>
+    public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> source)
+    {
+        if (source is null) return [];
+        return new ObservableCollection<T>(source);
+    }
 }

@@ -241,10 +241,14 @@ using System.Collections.ObjectModel;
 //numbers.Fill(5, 5);
 //Console.WriteLine(numbers.Join(","));
 
-var numbers = new List<int> { 1, 2, 3, 4, 5 };
+var numbers = new List<int> { 1, 2, 3, 4, 5 }.ToObservableCollection();
 var randomNumber = numbers.RandomChoice();
 Console.WriteLine($"Número aleatorio seleccionado de la lista: {randomNumber}");
 
-var wordSet = new HashSet<string> { "dog", "cat", "fish" };
+var wordSet = new HashSet<string> { "dog", "cat", "fish" }.ToObservableCollection();
 var randomWordFromSet = wordSet.RandomChoice();
 Console.WriteLine($"Palabra aleatoria seleccionada del conjunto: {randomWordFromSet}");
+
+var array = new int[] { 1, 2, 3, 4, 5 }.ToObservableCollection();
+var random = wordSet.RandomChoice();
+Console.WriteLine(random);
