@@ -416,14 +416,14 @@ public static class StringExt
     }
     /// <summary>
     /// Reverses a string.
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
     /// <example><code>
     /// string original = "Hello, World!";
     /// string reversed = original.ReverseString();
     /// //-> !dlroW ,olleH
     /// </code></example>
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     public static string ReverseString(this string input)
     {
         if (input is null) return string.Empty;
