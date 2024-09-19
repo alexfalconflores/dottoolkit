@@ -490,7 +490,7 @@ public static class MathExt
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="number"></param>
-    /// /// <param name="includeZero"></param>
+    /// <param name="includeZero"></param>
     /// <returns></returns>
     public static bool IsNatural<T>(this T number, bool includeZero = true) where T : struct, IComparable<T>
     {
@@ -499,6 +499,10 @@ public static class MathExt
     }
     /// <summary>
     /// Calculates the factorial of a non-negative integer.
+    /// <example><code>
+    /// ulong fac = 20.Factorial();
+    /// // -> 2432902008176640000
+    /// </code></example>
     /// </summary>
     /// <param name="number">The non-negative integer for which to calculate the factorial.</param>
     /// <returns>Returns the factorial of the provided number as an unsigned long integer.</returns>
@@ -508,10 +512,6 @@ public static class MathExt
     /// <c>18,446,744,073,709,551,615</c>. Factorials of numbers greater than 20 will exceed this limit 
     /// and cause an overflow, leading to incorrect results.
     /// </remarks>
-    /// <example><code>
-    /// ulong fac = 20.Factorial();
-    /// // -> 2432902008176640000
-    /// </code></example>
     public static ulong Factorial(this int number)
     {
         if (number < 0)
