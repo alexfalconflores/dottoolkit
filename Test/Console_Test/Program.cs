@@ -5,6 +5,7 @@ using Console_Test.model;
 using DotToolkit.Extensions;
 using DotToolkit.Math;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices;
 //using System.Numerics;
 //string str = string.Empty;
 //List<int> res = 999_999.Primes().ToList();
@@ -262,10 +263,40 @@ using System.Collections.ObjectModel;
 //bool resultString = stringValue.ToBool(); // Output: false
 //Console.WriteLine(resultString);
 
+//List<string> names = ["John", "Alex", "Zara"];
+//Console.WriteLine(names.Sorted().Join(","));
+
+//List<int> numbers = [2, 6, 9, 10, 0, 1, 20, 30, 8, 7];
+//Console.WriteLine(numbers.Sorted().Join(","));
+
+//List<string> fruits = ["banana", "apple", "cherry"];
+//Console.WriteLine(fruits.Sorted(StringComparer.OrdinalIgnoreCase).Join(","));
+
+//int[] numbers2 = [2, 6, 9, 10, 0, 1, 20, 30, 8, 7];
+//Console.WriteLine(numbers2.Sorted().Join(","));
+
+//var people = new List<Person2>()
+//{
+//    new Person2(){Name="Alice",Age=30},
+//    new Person2(){Name="Bob", Age=25},
+//    new Person2(){Name="Charlie", Age=35}
+//}
+//.Sorted((p1, p2) => p1.Age.CompareTo(p2.Age))
+//.Join(",", p => $"{p.Name} : {p.Age}");
+
+//Console.WriteLine(people);
+
+//var numbers3 = new List<int> { 5, 3, 8, 1, 2 };
+//Console.WriteLine(numbers3.Sorted(1, 3).Join(", "));
+
+//var obser = new int[] { 1, 2, 3, 4, 5 }.ToObservableCollection();
+////obser.Sorted
+
+//Dictionary<int, int> keyValuePairs = [];
+//keyValuePairs.Add(1, 2);
+//keyValuePairs.Add(2, 3);
+//keyValuePairs.Add(3, 4);
 
 
-
-
-
-
-
+var numbers = new int[] { 5, 3, 8, 1, 6 };
+Console.WriteLine(numbers.Sorted(1, 3, Comparer<int>.Create((x, y) => y.CompareTo(x))).Join(","));
