@@ -262,10 +262,6 @@ using System.Collections.ObjectModel;
 //bool resultString = stringValue.ToBool(); // Output: false
 //Console.WriteLine(resultString);
 
-Console.WriteLine(SampleEnum.A.ToChar());
-
-
-
 
 
 
