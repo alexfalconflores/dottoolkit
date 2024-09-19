@@ -5,6 +5,11 @@ public static class CollectionExt
     /// <summary>
     /// Fills the specified collection with a given value up to the specified quantity.
     /// If the collection is not empty and <paramref name="canOverwrite"/> is true, it will be cleared before adding new elements.
+    /// <example><code>
+    /// var numbers = new List&lt;int&gt;().Fill(4,4);
+    /// numbers.Fill(5,5);
+    /// //-> 4,4,4,4,5,5,5,5,5
+    /// </code></example>
     /// </summary>
     /// <typeparam name="TCollection">The type of the collection. It must implement <see cref="ICollection{TValue}"/>.</typeparam>
     /// <typeparam name="TValue">The type of the value to add to the collection. It represents the elements to be added to the collection.</typeparam>
@@ -13,11 +18,6 @@ public static class CollectionExt
     /// <param name="value">The value to add to the collection. This value will be added multiple times based on <paramref name="quantity"/>.</param>
     /// <param name="canOverwrite">A boolean flag indicating whether to clear the collection before adding new elements. If true, the collection will be cleared; if false, existing elements will be preserved.</param>
     /// <returns>The filled collection. Returns the same collection instance after adding the specified number of elements.</returns>
-    /// <example><code>
-    /// var numbers = new List<int>().Fill(4,4);
-    /// numbers.Fill(5,5);
-    /// //-> 4,4,4,4,5,5,5,5,5
-    /// </code></example>
     public static TCollection Fill<TCollection, TValue>(this TCollection collection, int quantity, TValue value, bool canOverwrite = false) where TCollection : ICollection<TValue>
     {
         if (collection is null) return collection;
@@ -29,21 +29,21 @@ public static class CollectionExt
     }
     /// <summary>
     /// Selects a random element from the specified collection.
+    /// <example><code>
+    /// var numbers = new List&lt;int&gt; { 1, 2, 3, 4, 5 };
+    /// var randomNumber = numbers.RandomChoice();
+    /// //-> 2
+    /// 
+    /// var wordSet = new HashSet&lt;string&gt; { "dog", "cat", "fish" };
+    /// var randomWordFromSet = wordSet.RandomChoice();
+    /// //-> fish
+    /// </code></example>
     /// </summary>
     /// <typeparam name="T">The type of the elements in the collection.</typeparam>
     /// <param name="collection">The collection from which to select a random element. It must not be null or empty.</param>
     /// <returns>A randomly selected element from the collection.</returns>
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="collection"/> is null.</exception>
     /// <exception cref="ArgumentException">Thrown when <paramref name="collection"/> is empty.</exception>
-    /// <example><code>
-    /// var numbers = new List<int> { 1, 2, 3, 4, 5 };
-    /// var randomNumber = numbers.RandomChoice();
-    /// //-> 2
-    /// 
-    /// var wordSet = new HashSet<string> { "dog", "cat", "fish" };
-    /// var randomWordFromSet = wordSet.RandomChoice();
-    /// //-> fish
-    /// </code></example>
     public static T RandomChoice<T>(this ICollection<T> collection)
     {
         if (collection is null) throw new ArgumentNullException(nameof(collection));
