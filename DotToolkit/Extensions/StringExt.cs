@@ -100,6 +100,39 @@ public static class StringExt
         return string.Join(separator ?? string.Empty, collection);
     }
     /// <summary>
+    /// Joins the elements of a collection into a single string using the specified separator and a formatting function.
+    /// <example><code>
+    /// var people = new List&lt;Person&gt;(){
+    ///     new Person(){Name="Alice", Age=30}
+    ///     new Person(){Name="Bob", Age=25}
+    ///     new Person(){Name="Charlie", Age=35}
+    /// }.Join(",", p => $"{p.Name} : {p.Age}");
+    /// //-> Alice : 30,Bob : 25,Charlie : 35
+    /// </code></example>
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the collection.</typeparam>
+    /// <param name="collection">The collection to join. Must not be null or empty.</param>
+    /// <param name="separator">The string to use as a separator between elements.</param>
+    /// <param name="formatFunc">The function to format each element.</param>
+    /// <returns>A string that consists of the formatted elements joined by the separator.</returns>
+    public static string Join<T>(this IEnumerable<T> collection, string? separator, Func<T, string> formatFunc)
+    {
+        if (collection is null || !collection.Any()) return string.Empty;
+        separator ??= string.Empty;
+        var builder = new StringBuilder();
+        bool first = true;
+        foreach (var item in collection)
+        {
+            if (!first)
+            {
+                builder.Append(separator);
+            }
+            builder.Append(formatFunc(item));
+            first = false;
+        }
+        return builder.ToString();
+    }
+    /// <summary>
     /// Concatenates the members of a collection of strings, using the specified separator between each member.
     /// <example><code>
     /// var words = new List&lt;string&gt; { "Hello", "World", "Foo", "Bar" };
