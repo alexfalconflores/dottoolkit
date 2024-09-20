@@ -7,12 +7,12 @@
 		<AssemblyName>DotToolkit</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<OutputType>Library</OutputType>
-		<FileVersion>1.0.1.0</FileVersion>
-		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<FileVersion>1.0.3.0</FileVersion>
+		<AssemblyVersion>1.0.3.0</AssemblyVersion>
 		<!--nugget package-->
 		<PackageId>DotToolkit</PackageId>
 		<Title>DotToolkit</Title>
-		<Version>1.0.1</Version>
+		<Version>1.0.3</Version>
 		<Authors>Alex Falcon Flores</Authors>
 		<Company>Alex Falcon Flores</Company>
 		<Product>DotToolkit</Product>
@@ -26,7 +26,7 @@
 		<PackageTags>dotnet; net; netcore; netstandard; library; uwp; winform; winui3; winappsdk; utility; toolkit; csharp; extensions; universal; windows; helper; math; console; wpf; aspnet; asp; api; json; optimizations; exceptions</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>🔨 Fixed the problem of why it did not recognize the reference.</PackageReleaseNotes>
+		<PackageReleaseNotes>🔨 Extensions and more...</PackageReleaseNotes>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<GenerateAssemblyInfo>True</GenerateAssemblyInfo>

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotToolkit" Version="1.0.1" />
+    <PackageReference Include="DotToolkit" Version="1.0.3" />
     <PackageReference Include="Tiempo" Version="0.0.4" />
   </ItemGroup>
 
