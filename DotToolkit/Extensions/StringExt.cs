@@ -8,7 +8,7 @@ namespace DotToolkit.Extensions;
 public static class StringExt
 {
     /// <summary>
-    /// Indicates whether the specified string is <see langword="null"/> or an <see cref="System.String.Empty"/> string.
+    /// Indicates whether the specified string is <see langword="null"/> or an <see cref="String.Empty"/> string.
     /// <example><code>
     /// string str1 = null;
     /// string str2 = "";
@@ -92,7 +92,7 @@ public static class StringExt
     ///  only if values has more than one element.</param>
     /// <param name="separator">The string to use as a separator.separator is included in the returned string</param>
     /// <returns>A string that consists of the members of values delimited by the separator string.
-    /// If the collection has no members or is <see langword="null"/>, the method returns <see cref="System.String.Empty"/>.
+    /// If the collection has no members or is <see langword="null"/>, the method returns <see cref="String.Empty"/>.
     /// </returns>
     public static string Join<T>(this IEnumerable<T> collection, string? separator)
     {
@@ -418,7 +418,7 @@ public static class StringExt
     /// 
     /// string input2 = "&lt;div&gt;Example&lt;/div&gt;";
     /// /// string escaped2 = input2.HtmlEscape();
-    /// -> <![CDATA[&lt;]]>div<![CDATA[&gt;]]>Example<![CDATA[&lt;]]>/div<![CDATA[&gt;]]>
+    /// // -> <![CDATA[&lt;]]>div<![CDATA[&gt;]]>Example<![CDATA[&lt;]]>/div<![CDATA[&gt;]]>
     /// </code></example>
     /// </summary>
     /// <param name="input">The string to be HTML-encoded.</param>

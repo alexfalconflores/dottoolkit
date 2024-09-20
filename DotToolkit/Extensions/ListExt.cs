@@ -45,6 +45,7 @@ public static class ListExt
     }
     /// <summary>
     /// Sorts the elements in the entire <see cref="List{T}"/> using the specified comparison function and returns the sorted list.
+    /// <example><code>
     /// var people = new List&lt;Person&gt;(){
     ///     new Person(){Name="Alice", Age=30}
     ///     new Person(){Name="Bob", Age=25}
@@ -52,6 +53,7 @@ public static class ListExt
     /// }.Sorted((p1, p2) => p1.Age.CompareTo(p2.Age))
     /// .Join(",", p => $"{p.Name} : {p.Age}");
     /// //-> Bob : 25,Alice : 30,Charlie : 35
+    /// </code></example>
     /// </summary>
     /// <typeparam name="T">The type of elements in the list.</typeparam>
     /// <param name="collection">The list to sort. Must not be null.</param>
