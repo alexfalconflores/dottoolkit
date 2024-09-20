@@ -24,10 +24,11 @@ using Tiempo;
 
 var people = new List<Person>()
 {
-    new Person(){Name="Alice",Age=30},
-    new Person(){Name="Bob", Age=25},
-    new Person(){Name="Charlie", Age=35}
+    new(){Name="Alice",Age=30},
+    new(){Name="Bob", Age=25},
+    new(){Name="Charlie", Age=35}
 }
 .Sorted((p1, p2) => p1.Age.CompareTo(p2.Age))
 .Join(",", p => $"{p.Name} : {p.Age}");
+
 Console.WriteLine(people);

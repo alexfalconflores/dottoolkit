@@ -12,7 +12,7 @@
 ## Installation 📦
 This project is available as a [NuGet package](https://www.nuget.org/packages/DotToolkit). You can install it using the NuGet Package Console window:
 ```bash
-dotnet add package DotToolkit --version 1.0.3
+dotnet add package DotToolkit --version 1.3.0
 ```
 
 ## Documentation 📖
