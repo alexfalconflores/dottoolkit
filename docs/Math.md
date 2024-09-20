@@ -230,3 +230,23 @@ var res = 5.IsNatural();
 var res = (-5).IsNatural();
 // -> false
 ```
+
+## Factorial
+> New
+
+Calculates the factorial of a non-negative integer. `Return` The result is limited by the maximum value of `ulong`, which is `18,446,744,073,709,551,615`. Factorials of numbers greater than 20 will exceed this limit and cause an overflow, leading to incorrect results.
+```csharp
+ulong fac = 20.Factorial();
+// -> 2432902008176640000
+```
+
+## FactorialBigInteger
+> New
+
+Calculates the factorial of a non-negative integer using a parallel approach. 
+The calculation is optimized to run on multiple processor cores.
+`Return` The factorial of the given number as a BigInteger.
+```csharp
+BigInteger res = 50.FactorialBigInteger();
+//->30414093201713378043612608166064768844377641568960512000000000000
+```
